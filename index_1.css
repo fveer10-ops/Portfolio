@@ -1,3 +1,17 @@
+@media screen and (max-width: 600px){
+	nav ul{
+		word-spacing: 15px;
+		}
+	#pic{
+		float: none;
+		display: block;
+		}
+	section > p{
+		text-align: center;
+	}
+}
+
+
 nav ul{
 	position: fixed;
 	top: 0;
