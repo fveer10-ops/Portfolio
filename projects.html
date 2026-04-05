@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
 <head>
 	<meta charset = "UTF-8">
 	<title> Fatehveer Chahal | Projects </title> 
@@ -12,9 +12,10 @@
 <body>
 	<nav>
 		<ul>
-			<li> <a href = "index.html"> HOME </a> </li>
-			<li> <a href = "skills.html"> SKILLS </a> </li>
-			<li> <a href = "projects.html"> PROJECTS </a> </li>
+			<li> <a href = "index.html"> <b> HOME </b> </a> </li>
+			<li> <a href = "skills.html"> <b> SKILLS </b> </a> </li>
+			<li> <a href = "projects.html"> <b> PROJECTS </b> </a> </li>
+			<li> <a href = "feedback.html"> <b> FEEDBACK </b> </a> </li>
 			<span id = "clock"> </span>
 		</ul>
 	</nav>	
@@ -28,63 +29,74 @@
 
 	<main>
 		<h2> My Project Roadmap </h2>
-			<table border ="2" cellpadding = "10" width = "100%">
-				<tr> 
-					<td> <img src ="calculatorcode_ss.jpeg" alt = "Screenshot of the Java code for arithmetic calculator" width = "250"> </td>
-					<td> <em><b> JAVA Arithmetic Calculator </b></em>: This JAVA project is a functional command-line calculator. It reflects my grasp on the topics such as conditional logic, user input management, do-loops and variables.
-					
-   						 <h3><u>Project Details: Java Arithmetic Calculator</u></h3>
-   							 <ul>
-       								 <li><strong>Core Functionalities</strong>
-           								 <ul>
-                								<li>Basic Arithmetic (Addition, Subtraction, Multiplication, Division)</li>
-                								<li>User Input Validation using Scanner class</li>
-               									<li>Exception Handling for "Division by Zero"</li>
-           								 </ul>
-        							</li>
-       				 				<li><strong>Development Environment</strong>
-            								<ul>
-                								<li>IDE: Visual Studio Code</li>
-                								<li>Language: Java 17</li>
-               			 						<li>Platform: Windows/macOS</li>
-            								</ul>
-        							</li>
-    							</ul>
-
-					<b> <u>Project Demonstration: </u></b>
-					<br> <br>
-					<video width = "250" controls>
-						<source src = "java_calculator.mp4" type = "video/mp4">
+			<div class = "projects">
+			  <div class = "roadmap">
+				<img src ="calculatorcode_ss.jpeg" alt = "Screenshot of the Java code for arithmetic calculator" class = "photo">
+				<div class = "roadmap-body">
+					<h3 class="roadmap-title"> <em>JAVA Arithmetic Calculator</em> </h3>
+					<p> A functional command-line calculator reflecting my grasp on conditional logic, user input management, do-loops, and variables. </p>
+				
+					<h4> Core Functionalites </h4>
+					<ul>
+						<li>Basic Arithmetic (Addition, Subtraction, Multiplication, Division)</li>
+						<li>User Input Validation using Scanner class</li>
+						<li>Exception Handling for "Division by Zero"</li>
+					</ul>
+					<h4>Development Environment</h4>
+					<ul>
+						<li>IDE: Visual Studio Code</li>
+						<li>Language: Java 17</li>
+						<li>Platform: Windows/macOS</li>
+					</ul>
+					<p><b>Project Demonstration:</b></p>
+					<video width="100%" controls>
+						<source src="java_calculator.mp4" type="video/mp4">
 						Error: Your browser does not support the video.
-					</video> <br>
-					<small> <i> Walkthrough of the calculator program execution in the terminal on IntelliJ. </i> </small>
-					<p> <a href = "Calculator.java" download> Click here</a> to download the java course code </p>
-				
-					</td>
-				
-				</tr>
+					</video>
+					<small><i>Walkthrough of the calculator program in the terminal on IntelliJ.</i></small>
+					<p><a href="Calculator.java" download>Click here</a> to download the Java source code</p>
+				</div>
+			</div>
+		
 
-				<tr>
-					<td> <img src = "website.png" alt = "Screenshot of Fatehveer's Portfolio Webpage" width = "250"> </td>
-					<td> <em> <b> The Portfolio Site </b></em>: This website is a part of a Web Development course. It is built purely on HTML-5 without any use of CSS or JS. The project involved steps from site mapping and wireframing to final implementation. </td>
-				</tr>
-				
-				<tr> 	
-					<td> <img src = "packettracer.png" alt = "screenshot of Cisco Packet tracer topography" width = "250"> </td>
-					<td> <em> <b> Network Security Roadmap (Planned) </b></em>: This upcoming project is about Cisco Packet Tracer. Its focus would be on implementing ACLs, VLANs and some basic firewall configurations. This project aligns with my goal of strengthening my skills of network security. <br> 
-					<br>
-					<b> Objectives of this next project: </b>
+			<div class = "roadmap">
+				<img src="website.png" alt="Screenshot of Fatehveer's Portfolio Webpage" class="photo">
+				<div class="roadmap-body">
+					<h3 class="roadmap-title"> <em>The Portfolio Site</em> </h3>
+					<p> This website is part of a Web Development course. Built with HTML5, CSS, and JavaScript, the project involved steps from site mapping and wireframing to final 							implementation. </p>
+
+					<h4>Highlights</h4>
+					<ul>
+						<li>Responsive layout with mobile and tablet support</li>
+						<li>Dynamic theme switcher (Default, Dark, Light)</li>
+						<li>Live clock and time-based greeting</li>
+						<li>Accessible, semantic HTML structure</li>
+					</ul>
+				</div>
+			</div>
+	
+		
+			<div class="roadmap">
+				<img src="packettracer.png" alt="Screenshot of Cisco Packet Tracer topology" class="photo">
+				<div class="roadmap-body">
+					<h3 class="roadmap-title"> <em>Network Security Roadmap <span class="badge">Planned</span></em> </h3>
+					<p> An upcoming Cisco Packet Tracer project focused on implementing ACLs, VLANs, and basic firewall configurations — aligned with my goal of strengthening network security skills. </p>
+
+					<h4>Objectives</h4>
 					<ol>
-						<li> Network configurations </li>
-						<li> IoT (Internet of Things)</li>
-						<li> Firewall Configurations </li>
-						<li> Network Documentation </li>
+						<li>Network Configurations</li>
+						<li>IoT (Internet of Things)</li>
+						<li>Firewall Configurations</li>
+						<li>Network Documentation</li>
 					</ol>
-					</td>
-				</tr>
-			</table>
+				</div>
+			</div>
+		</div>
+
+
 	</main>
 	<hr>
+
 	<footer>
 		<div class = "footer_left">
 			<p> 

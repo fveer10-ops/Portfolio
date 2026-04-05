@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title> Fatehveer Chahal | Feedback </title> 
+		<link rel = "icon" type = "image/png" href = "favicon.png">
+		<link rel = "stylesheet" href = "index_1.css">
+		<script src = "index_1.js" defer></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<nav>
+			<ul>
+				<li> <a href = "index.html"> <b> HOME </b> </a> </li>
+				<li> <a href = "skills.html"> <b> SKILLS </b> </a> </li>
+				<li> <a href = "projects.html"> <b> PROJECTS </b> </a> </li>
+				<li> <a href = "feedback.html"> <b> FEEDBACK </b> </a> </li>
+				<span id = "clock"> </span>
+			</ul>
+		</nav>	
+	
+		<section id = "feedback-section">
+			<h2> Help Me Improve My Portfolio </h2>
+			<p> As a CS student, I value your feedback on the design and functionality of this site. </p>
+	
+			<form id = "feedback-form" action = "#" target = "_blank" method = "post">
+				<div class = "formInput">
+					<label for = "name"> Your name:</label>
+					<input type = "text" id = "name" name = "name" placeholder = "Enter your name" required>
+				</div>
+				<div class = "formInput">
+					<label for = "role"> I am a:</label>
+					<select id = "role" name = "role">
+						<option value = "student"> Fellow Student </option>
+						<option value = "professor"> Professor </option>
+						<option value = "recruiter"> Recruiter </option>
+						<option value = "others"> Other </option>
+					</select>
+				</div>
+				<div class = "formInput"> 
+					<label for = "feedback"> Suggestions for Improvements: </label>
+					<textarea id = "feedback" name = "feedback" rows = "6" placeholder = "Please enter your feedback here..." required></textarea>
+				</div>
+			
+				<button type = "submit" id = "submitFeedback"> Submit Feedback </button>
+			</form>
+		</section>
+				
+				
+		<footer>
+			<div class = "footer_left">
+				<p> 
+			  	<b> Contact: </b> 
+			  	<a href = "mailto: Fchahal@dal.ca"> Fchahal@dal.ca </a> | 
+			  	<a href = "https://www.linkedin.com/in/fatehveer-chahal-37a219326?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BOJMtvpq9R46T%2BkySz5CZ6w%3D%3D"> LinkedIn 				</a>
+				</p>
+			</div>
+			<div class = "footer_right">
+			
+				<p> Choose website theme: 
+					<button type = "button" onclick = "changeColor('default')" > Default </button>
+					<button type = "button" onclick = "changeColor('dark')" > Dark </button>
+					<button type = "button" onclick = "changeColor('light')" > Light </button>
+				</p>
+			
+			</div>
+		</footer>
+
+	</body>
+</html>
