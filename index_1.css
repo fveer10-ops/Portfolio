@@ -286,8 +286,13 @@ footer button:hover{
 
 .roadmap-body ul, .roadmap-body ol {
 	padding-left: 18px;
-	line-height: 1.8;
-	margin: 0;
+	margin: 10px 0;
+	width: 100%
+	box-sizing: border-box;
+}
+
+.roadmap-body li{
+	margin-bottom: 8px;
 }
 
 .roadmap-body h4 {
