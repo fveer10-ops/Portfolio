@@ -259,6 +259,7 @@ footer button:hover{
 	align-self: center;
     	display: block;
     	margin: 15px auto;
+		overflow: hidden;
 }
 
 .roadmap{
@@ -266,7 +267,7 @@ footer button:hover{
 	border: 2px solid #1A1F5E;
 	border-radius: 10px;
 	box-shadow: 5px 5px 9px grey;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	display: flex;
 	flex-direction: column;
 }
