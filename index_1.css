@@ -4,12 +4,20 @@
 
 @media screen and (max-width: 600px){
 	nav ul{
-		word-spacing: 15px;
-		}
+		gap: 10px;
+		padding: 5px;
+	}
+	nav ul li{
+		font-size: 0.9rem;
+	}
+	#clock{
+		width: 100%;
+		text-align: center;
+	}
 	#pic{
 		float: none;
 		display: block;
-		}
+	}
 	section > p{
 		text-align: center;
 	}
@@ -50,18 +58,21 @@ nav ul{
 	margin: 0;
 	width: 100%;
 	z-index: 1000;
-	text-align: center;
-	word-spacing: 100px;
 	padding-top : 10px;
 	padding-bottom: 10px;
 	background-color: #1B2A4A;
 	color: #E8F4FD;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 70px;
+	flex-wrap: wrap;
 	
 }
 
 
-nav > ul > li{
-	display: inline-block;
+nav  ul  li{
+	display: inline;
 		
 
 }
@@ -132,7 +143,9 @@ h3 + ul {
 
 .photo{
 	margin: 0;
-	width: 250px;
+	width: 90%;
+	height: auto;
+	object-fit: cover;
 	border: 5px solid #1A1F5E;
 	border-radius: 10px;
 	box-shadow: 5px 5px 9px grey;
