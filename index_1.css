@@ -5,20 +5,25 @@
 @media screen and (max-width: 600px){
 	nav ul{
 		gap: 3px;
-		padding: 3px;
+		padding: 2px 3px 1px 3px;
 		flex-wrap: nowrap;
+		justify-content: space-evenly;
 		font-size: 0.8rem;
 	}
 	nav ul li{
-		font-size: 0.8rem;
+		font-size: 0.6rem;
 	}
+	nav ul li a {
+        font-size: 0.65rem;
+    }
+	
 	#clock{
 		width: 100%;
 		text-align: center;
 		font-size: 0.75rem;
-    		line-height: 1;
-    		margin-top: -5px;
-    		padding: 0; 
+    	line-height: 1;
+    	margin-top: -5px;
+    	padding: 0; 
 	}
 	#pic{
 		float: none;
