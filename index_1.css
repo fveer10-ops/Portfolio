@@ -4,8 +4,8 @@
 
 @media screen and (max-width: 600px){
 	nav ul{
-		gap: 10px;
-		padding: 5px 3px;
+		gap: 3px;
+		padding: 3px;
 		flex-wrap: nowrap;
 		font-size: 0.8rem;
 	}
@@ -16,9 +16,9 @@
 		width: 100%;
 		text-align: center;
 		font-size: 0.75rem;
-    	line-height: 1;
-    	margin-top: -5px;
-    	padding: 0; 
+    		line-height: 1;
+    		margin-top: -5px;
+    		padding: 0; 
 	}
 	#pic{
 		float: none;
@@ -43,6 +43,8 @@
    	#hero-buttons {
         	justify-content: center;
     	}
+
+	
 }
 
 @media screen and (min-width: 601px) and (max-width: 1024px){
@@ -265,7 +267,7 @@ footer button:hover{
 	align-self: center;
     	display: block;
     	margin: 15px auto;
-		overflow: hidden;
+	overflow: hidden;
 }
 
 .roadmap{
@@ -273,7 +275,6 @@ footer button:hover{
 	border: 2px solid #1A1F5E;
 	border-radius: 10px;
 	box-shadow: 5px 5px 9px grey;
-	/*overflow: hidden;*/
 	display: flex;
 	flex-direction: column;
 }
@@ -317,6 +318,7 @@ footer button:hover{
 	vertical-align: middle;
 	font-style: normal;
 }
+
 
 
 /* HERO IMAGE */
