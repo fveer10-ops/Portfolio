@@ -13,22 +13,25 @@
 	nav ul li{
 		font-size: 0.6rem;
 	}
+
 	nav ul li a {
-        font-size: 0.65rem;
-    }
-	
+        	font-size: 0.65rem;
+    	}
+
 	#clock{
 		width: 100%;
 		text-align: center;
 		font-size: 0.75rem;
-    	line-height: 1;
-    	margin-top: -5px;
-    	padding: 0; 
+    		line-height: 1;
+    		margin-top: -5px;
+    		padding: 0; 
 	}
+
 	#pic{
 		float: none;
 		display: block;
 	}
+
 	section > p{
 		text-align: center;
 	}
@@ -36,6 +39,7 @@
 	.projects{
 		grid-template-columns: 1fr;
 	}
+
 	#feedback-form{
 		max-width: 90%;
 	}
@@ -45,10 +49,15 @@
         	text-align: center;
         	padding: 30px 20px;
    	}
+
    	#hero-buttons {
         	justify-content: center;
     	}
 
+	.logos{
+		grid-template-columns: repeat(2, 1fr);
+		gap: 6px;
+	}
 	
 }
 
@@ -236,7 +245,7 @@ span#clock {
 	margin-right: 20px;
 }
 
-footer a:link{
+footer a{
 	color: #E8F4FD;
 }
 
@@ -257,6 +266,10 @@ footer button:hover{
 	border: 1px black;
 	border-radius: 25px;
 	background-color: #E8F4FD;
+}
+
+footer a:visited{
+	color: #E8F4FD;
 }
 
 
@@ -300,7 +313,7 @@ footer button:hover{
 .roadmap-body ul, .roadmap-body ol {
 	padding-left: 18px;
 	margin: 10px 0;
-	width: 100%
+	width: 100%;
 	box-sizing: border-box;
 }
 
@@ -423,6 +436,54 @@ textarea{
 	margin-bottom: 15px;
 	padding: 0;
 }
+
+
+
+
+/* PHOTO GALLERY */
+
+.logos{
+	display:grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 15px;
+	padding: 20px 15px 60px 15px;
+		
+}
+
+.logo-item{
+	background-color: rgba(240, 240, 240, 0.85);
+	border: 2px solid #1A1F5E;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px grey;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px;
+	justify-content: center;
+	
+}
+
+.logos img{
+	width: 70px;
+    	height: 60px;
+    	object-fit: contain;
+	
+}
+
+.logos span{
+	margin-top: 5px;
+	color: black;
+	font-size: 0.75rem;
+	font-weight: bold;
+}
+
+.logo-item:hover{
+	background-color: #E3F2FD;
+	
+}
+	
+	
+	
 
 
 	
