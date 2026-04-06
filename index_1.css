@@ -5,8 +5,8 @@
 @media screen and (max-width: 600px){
 	nav ul{
 		gap: 10px;
-		padding: 3px;
-		flex-wrap: no-wrap;
+		padding: 5px 3px;
+		flex-wrap: nowrap;
 		font-size: 0.8rem;
 	}
 	nav ul li{
