@@ -1,14 +1,11 @@
 from __future__ import annotations
 
-# This module acts as the controller for the Pong game.
-# It listens for keyboard input, updates the model state,
-# and tells the view what to draw on the screen.
 import random
 
 import pygame
-from pygame.constants import K_1, K_2, K_DOWN, K_ESCAPE, K_UP, K_s, K_w
+from pygame.constants import K_1, K_2, K_3, K_4, K_DOWN, K_ESCAPE, K_UP, K_s, K_w
 
-from pong_game.models import GameModel, HEIGHT, WIDTH
+from pong_game.models import GameModel, HEIGHT, WIDTH, PADDLE_COLORS
 from pong_game.views import PongView
 
 
@@ -30,6 +27,28 @@ class PongController:
         self.state = "menu"
         self.mode: str | None = None
         self.winner: str | None = None
+
+    def cycle_paddle_color(self, direction: int) -> None:
+        unlocked = list(self.model.unlocked_paddle_colors)
+        unlocked.sort(key=lambda item: list(PADDLE_COLORS.keys()).index(item))
+
+        current_index = unlocked.index(self.model.selected_paddle_color)
+        next_index = (current_index + direction) % len(unlocked)
+        self.model.set_selected_paddle_color(unlocked[next_index])
+
+    def start_single_player_match(self) -> None:
+        self.mode = "single"
+        self.state = "playing"
+        self.model.reset_match()
+        self.model.single_player_run_time = 0.0
+        self.model.ball.reset(1)
+        self.model.set_selected_paddle_color(self.model.selected_paddle_color)
+
+    def start_two_player_match(self) -> None:
+        self.mode = "two_player"
+        self.state = "playing"
+        self.model.reset_match()
+        self.model.ball.reset(random.choice([-1, 1]))
 
     def run(self) -> None:
         # Main game loop: process input, update logic, redraw the screen,
@@ -60,34 +79,35 @@ class PongController:
             # When in the menu screen, pressing 1 or 2 starts a new match.
             if self.state == "menu":
                 if event.key == K_1:
-                    self.mode = "single"
-                    self.state = "playing"
-                    self.model.reset_match()
-                    self.model.ball.reset(1)
+                    self.start_single_player_match()
                     return
 
                 if event.key == K_2:
-                    self.mode = "two_player"
-                    self.state = "playing"
-                    self.model.reset_match()
-                    self.model.ball.reset(random.choice([-1, 1]))
+                    self.start_two_player_match()
+                    return
+
+                if event.key == K_3:
+                    self.cycle_paddle_color(-1)
+                    return
+
+                if event.key == K_4:
+                    self.cycle_paddle_color(1)
+                    return
+
+                if event.key == K_5:
+                    self.model.selected_paddle_color = "classic"
+                    self.model.left_paddle.color = PADDLE_COLORS["classic"]
                     return
 
             # After a match ends, the player can restart in either mode.
             elif self.state == "game_over":
                 if event.key == K_1:
-                    self.mode = "single"
-                    self.state = "playing"
-                    self.model.reset_match()
-                    self.model.ball.reset(1)
+                    self.start_single_player_match()
                     self.winner = None
                     return
 
                 if event.key == K_2:
-                    self.mode = "two_player"
-                    self.state = "playing"
-                    self.model.reset_match()
-                    self.model.ball.reset(random.choice([-1, 1]))
+                    self.start_two_player_match()
                     self.winner = None
                     return
 
@@ -122,6 +142,9 @@ class PongController:
         # Update the model after the players have moved.
         self.model.update(delta_time)
 
+        if self.mode == "single":
+            self.model.update_single_player_countdown(delta_time)
+
         # Check whether someone reached the win condition and switch states.
         winner = self.model.get_winner()
         if winner is not None:
@@ -150,3 +173,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

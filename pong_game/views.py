@@ -1,10 +1,8 @@
 from __future__ import annotations
 
-# This module is responsible for drawing all visible game elements.
-# The view receives the model state and renders it to the screen.
 import pygame
 
-from pong_game.models import GameModel, HEIGHT, WIDTH
+from pong_game.models import GameModel, HEIGHT, WIDTH, PADDLE_COLORS
 
 
 class PongView:
@@ -37,10 +35,20 @@ class PongView:
         self.screen.blit(left_text, left_rect)
         self.screen.blit(right_text, right_rect)
 
+    def draw_high_score(self) -> None:
+        # Draw the single-player survival score for the current run and best result.
+        current_text = self.small_font.render(f"Current: {self.game_model.single_player_run_time:.1f}s", True, (220, 220, 220))
+        current_rect = current_text.get_rect(midtop=(WIDTH // 2, 92))
+        self.screen.blit(current_text, current_rect)
+
+        best_text = self.small_font.render(f"Best: {self.game_model.single_player_high_score:.1f}s", True, (220, 220, 220))
+        best_rect = best_text.get_rect(midtop=(WIDTH // 2, 118))
+        self.screen.blit(best_text, best_rect)
+
     def draw_paddles_and_ball(self) -> None:
         # Draw the left paddle, right paddle, and ball in their current positions.
-        pygame.draw.rect(self.screen, (255, 255, 255), self.game_model.left_paddle.rect)
-        pygame.draw.rect(self.screen, (255, 255, 255), self.game_model.right_paddle.rect)
+        pygame.draw.rect(self.screen, self.game_model.left_paddle.color, self.game_model.left_paddle.rect)
+        pygame.draw.rect(self.screen, self.game_model.right_paddle.color, self.game_model.right_paddle.rect)
         pygame.draw.ellipse(self.screen, (255, 255, 255), self.game_model.ball.rect)
 
     def draw_menu(self) -> None:
@@ -59,18 +67,36 @@ class PongView:
         menu_rect = menu_text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
         self.screen.blit(menu_text, menu_rect)
 
+        paddle_choice = ", ".join(color.title() for color in sorted(self.game_model.unlocked_paddle_colors, key=lambda item: list(PADDLE_COLORS.keys()).index(item)))
+        paddle_text = self.small_font.render(
+            f"Choose paddle: {paddle_choice}   3/4: cycle",
+            True,
+            (190, 190, 190),
+        )
+        paddle_rect = paddle_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 50))
+        self.screen.blit(paddle_text, paddle_rect)
+
+        selected_text = self.small_font.render(
+            f"Selected: {self.game_model.selected_paddle_color.title()}",
+            True,
+            (190, 190, 190),
+        )
+        selected_rect = selected_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 90))
+        self.screen.blit(selected_text, selected_rect)
+
         controls_text = self.small_font.render(
             "Player 1: W / S   Player 2: Up / Down   Esc: Quit",
             True,
             (190, 190, 190),
         )
-        controls_rect = controls_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 60))
+        controls_rect = controls_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 130))
         self.screen.blit(controls_text, controls_rect)
 
     def draw_game(self) -> None:
         # Draw the active game state: the background, scores, and moving objects.
         self.draw_background()
         self.draw_scores()
+        self.draw_high_score()
         self.draw_paddles_and_ball()
 
     def draw_game_over(self, winner: str) -> None:
@@ -82,13 +108,22 @@ class PongView:
         win_rect = win_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 - 30))
         self.screen.blit(win_text, win_rect)
 
+        best_text = self.medium_font.render(
+            f"Best survival: {self.game_model.single_player_high_score:.1f}s",
+            True,
+            (235, 235, 235),
+        )
+        best_rect = best_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 20))
+        self.screen.blit(best_text, best_rect)
+
         prompt_text = self.small_font.render(
             "Press 1 or 2 to play again, or Esc to quit",
             True,
             (220, 220, 220),
         )
-        prompt_rect = prompt_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 30))
+        prompt_rect = prompt_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 70))
         self.screen.blit(prompt_text, prompt_rect)
 
 
 __all__ = ["PongView"]
+
